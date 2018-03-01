@@ -1,0 +1,11 @@
+.toolbarWrapper {
+  border-bottom: 1px solid;
+  display: flex;
+  padding: 12px;
+}
+.title {
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-right: auto;
+  letter-spacing: 0.15em;
+}
