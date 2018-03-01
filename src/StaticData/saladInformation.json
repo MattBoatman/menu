@@ -1,0 +1,22 @@
+{
+    "tacos": [
+      {
+        "id": 1,
+        "name": "Ensalada De La Casa",
+        "imageUrl": "./tacoalpastor.jpg",
+        "description": "Crisp romain and iceberg lettuce, cotija cheese, slice tomatoes, fresh cucumbers, red onions and our delicious pineapple with salsa verde dressing",
+        "price": "3.00",
+        "subItems": null,
+        "upgrades": null
+      },
+      {
+        "id": 2,
+        "name": "Taco Salad",
+        "imageUrl": "./mexicantacos.jpg",
+        "description": "Crispy flour tortilla filled with spinach and romaine lettuce, pinto beans, mozzarella cheese, pico de gallo, sour cream and avocade slices",
+        "price": "7.00",
+        "subItems": null,
+        "upgrades": {"description": "Add any meat for ", "price": "2.00"}
+      }
+    ]
+  }

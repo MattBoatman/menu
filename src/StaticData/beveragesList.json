@@ -1,0 +1,16 @@
+{
+    "beverages": [
+      {
+        "id": 1,
+        "name": "Authentic Homemade Refreshments",
+        "imageUrl": "./tacoalpastor.jpg",
+        "price": "1.50-2.00"
+      },
+      {
+        "id": 2,
+        "name": "Sodas",
+        "imageUrl": "./mexicantacos.jpg",
+        "price": "1.50-2.00"
+      }
+    ]
+  }
