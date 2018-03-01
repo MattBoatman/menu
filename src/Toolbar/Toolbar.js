@@ -4,9 +4,7 @@ import './Toolbar.css';
 
 const Toolbar = props => {
   return (
-    <div className="toolbarWrapper">
       <span className="title">{props.title}</span>
-    </div>
   );
 };
 
