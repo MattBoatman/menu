@@ -1,8 +1,0 @@
-{
-    "categories": [
-        {"id": 1, "type": "Tacos", "imageUrl": "./tacoalpastor.jpg"},
-        {"id": 2, "type": "Quesadillas", "imageUrl": "./quesadilla.jpg"},
-        {"id": 3, "type": "Salads", "imageUrl": "./salad.jpg"},
-        {"id": 4, "type": "Beverages", "imageUrl": "./jarritos.jpg"}
-    ]
-}
