@@ -1,0 +1,32 @@
+{
+    "beveragesInformation": [
+      {
+        "id": 1,
+        "name": null,
+        "imageUrl": "./horchata.jpg",
+        "description": null,
+        "price": null,
+        "subItems": [
+            { "type": "Horchata (A sweet & refreshing rice drink)", "price": "2.00" },
+            { "type": "Hibiscus Water (Jamica)", "price": "2.00" },
+            { "type": "Pinacolada (Non-Alcoholic)", "price": "2.00" },
+            { "type": "Bottled Water", "price": "1.50" }
+        ],
+        "upgrades": null
+      },
+      {
+        "id": 2,
+        "name": null,
+        "imageUrl": "./jarritos.jpg",
+        "description": null,
+        "price": null,
+        "subItems": [
+            { "type": "Jarritos (Pineapple, Mango, Lime, Mandarin)", "price": "2.00" },
+            { "type": "Mexican Coke (bottled)", "price": "2.50" },
+            { "type": "Mexican Sprite (bottled)", "price": "2.50" },
+            { "type": "Coke or Diet Coke", "price": "1.50" }
+        ],
+        "upgrades": null
+      }
+    ]
+  }

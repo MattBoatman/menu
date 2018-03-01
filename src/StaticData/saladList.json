@@ -1,0 +1,16 @@
+{
+    "salads": [
+      {
+        "id": 1,
+        "name": "Ensalada De La Casa",
+        "imageUrl": "./ensalada-de-la-casa.jpg",
+        "price": "3.00"
+      },
+      {
+        "id": 2,
+        "name": "Taco Salad",
+        "imageUrl": "./salad.jpg",
+        "price": "7.00"
+      }
+    ]
+  }
