@@ -8,7 +8,9 @@ class MainWrapper extends Component {
     return (
       <div>
         <Toolbar title="Boatman's Menu" />
-        <CategoryWrapper />
+        <div className="main-wrapper">
+          <CategoryWrapper />
+        </div>
       </div>
     );
   }

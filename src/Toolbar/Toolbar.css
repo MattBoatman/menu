@@ -1,11 +1,18 @@
-.toolbarWrapper {
-  border-bottom: 1px solid;
-  display: flex;
-  padding: 12px;
-}
 .title {
+  padding: 12px;
   font-size: 18px;
   text-transform: uppercase;
   margin-right: auto;
   letter-spacing: 0.15em;
+  font-weight: 800;
+  background-color: #54928B;
+  color: #ffffff;
+  height: 100%;
+  display: inline-block;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 600px) {
+  .title {
+    width: 100%;
+  }
 }
