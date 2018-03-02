@@ -4,10 +4,10 @@ import './Toolbar.css';
 
 const Toolbar = props => {
   return (
-      <div className="toolbarWrapper">
+    <div className="toolbarWrapper">
       <span className="title">{props.title}</span>
       <span className="categoryType">{props.categoryType}</span>
-      </div>
+    </div>
   );
 };
 

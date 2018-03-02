@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import Toolbar from './Toolbar';
 
 const minProps = {
-  title: 'Boatman'
+  title: 'Boatman',
 };
 
 describe('Toolbar', () => {

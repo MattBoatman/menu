@@ -3,8 +3,8 @@ import category from './CategoryRedux/CategoryReducer';
 import list from './ListRedux/ListReducer';
 
 const rootReducer = combineReducers({
-    category,
-    list
+  category,
+  list,
 });
 
 export default rootReducer;
