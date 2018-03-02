@@ -6,12 +6,14 @@ const Toolbar = props => {
   return (
       <div className="toolbarWrapper">
       <span className="title">{props.title}</span>
+      <span className="categoryType">{props.categoryType}</span>
       </div>
   );
 };
 
 Toolbar.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  categoryType: PropTypes.string,
 };
 
 export default Toolbar;
