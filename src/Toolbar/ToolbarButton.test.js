@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import Price from './Price';
+import ToolbarButton from './ToolbarButton';
 
 const minProps = {
-  Price: '1.0000000000',
+  text: 'list',
+  onClick: () => {},
 };
-describe('Price', () => {
+describe('ToolbarButton', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(<Price {...minProps} />);
+    const wrapper = shallow(<ToolbarButton {...minProps} />);
     expect(wrapper.length).toEqual(1);
   });
 });

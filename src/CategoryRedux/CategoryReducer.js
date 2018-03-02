@@ -31,11 +31,6 @@ function category(
         error: true,
         categories: [],
       };
-    case ActionTypes.SELECT_CATEGORY:
-      return {
-        ...state,
-        selectedCategory: action.category,
-      };
     default:
       return state;
   }

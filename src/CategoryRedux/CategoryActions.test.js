@@ -53,13 +53,4 @@ describe('CategoryActions', () => {
       });
     });
   });
-  describe('selectCategory', () => {
-    it('expect SELECT_CATEGORY type', () => {
-      const expected = {
-        type: ActionTypes.SELECT_CATEGORY,
-        category: { id: 2 },
-      };
-      expect(ActionTypes.selectCategory({ id: 2 })).toEqual(expected);
-    });
-  });
 });

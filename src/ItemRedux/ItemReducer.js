@@ -4,9 +4,7 @@ function item(
   state = {
     isFetching: false,
     error: false,
-    selectedItem: {
-      itemId: null,
-    },
+    selectedItem: {},
   },
   action,
 ) {
@@ -16,7 +14,7 @@ function item(
         ...state,
         isFetching: true,
         error: false,
-        selectedItem: { itemId: null },
+        selectedItem: {},
       };
     case ActionTypes.GET_ITEM_SUCCESS:
       return {
@@ -29,6 +27,11 @@ function item(
         ...state,
         isFetching: false,
         error: true,
+      };
+    case ActionTypes.CLEAR_SELECTED_ITEM:
+      return {
+        ...state,
+        selectedItem: {},
       };
     default:
       return state;

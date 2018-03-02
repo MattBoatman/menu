@@ -7,7 +7,7 @@ import AvatarImage from './AvatarImage';
 const subItemsShape = {
   description: PropTypes.string,
   price: PropTypes.string,
-}
+};
 
 const itemShape = {
   itemId: PropTypes.number,
@@ -23,7 +23,12 @@ const Card = props => {
   return (
     <div className="card" onClick={props.clickCard}>
       <AvatarImage imageUrl={props.imageUrl} />
-      <CardBottom moreInformation={props.moreInformation} color={props.color} title={props.title} price={props.price} />
+      <CardBottom
+        moreInformation={props.moreInformation}
+        color={props.color}
+        title={props.title}
+        price={props.price}
+      />
     </div>
   );
 };

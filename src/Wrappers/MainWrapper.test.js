@@ -12,6 +12,8 @@ const minProps = {
   selectCategory: () => {},
   getListOfItems: () => {},
   getItem: () => {},
+  clearList: () => {},
+  clearSelectedItem: () => {},
 };
 describe('MainWrapper', () => {
   it('renders without crashing', () => {

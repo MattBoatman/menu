@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import isEmpty from 'lodash/isEmpty';
 import MoreInformationDescription from './MoreInformationDescription';
 import SubItems from './SubItems';
 
@@ -38,10 +39,20 @@ const MoreInformationBlock = props => {
       )}
       {props.moreInformation.subItems &&
         props.moreInformation.subItems.map((object, index) => {
-          return <SubItems key={index} description={object.description} price={object.price} />;
+          return (
+            <SubItems
+              key={index}
+              description={object.description}
+              price={object.price}
+            />
+          );
         })}
-      {props.moreInformation.upgrades && (
-        <SubItems description={props.moreInformation.upgrades.description} price={props.moreInformation.upgrades.price} isUpgrade />
+      {!isEmpty(props.moreInformation.upgrades) && (
+        <SubItems
+          description={props.moreInformation.upgrades.description}
+          price={props.moreInformation.upgrades.price}
+          isUpgrade
+        />
       )}
     </div>
   );

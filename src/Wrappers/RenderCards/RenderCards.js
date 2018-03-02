@@ -6,7 +6,7 @@ import './RenderCards.css';
 const subItemsShape = {
   description: PropTypes.string,
   price: PropTypes.string,
-}
+};
 
 const itemShape = {
   itemId: PropTypes.number,
@@ -30,7 +30,11 @@ const RenderCards = props => {
             imageUrl={object.imageUrl}
             color={object.color}
             price={object.price}
-            moreInformation={object.itemId === props.selectedItem.itemId ? props.selectedItem : null}
+            moreInformation={
+              props.selectedItem && object.itemId === props.selectedItem.itemId
+                ? props.selectedItem
+                : null
+            }
           />
         );
       })}
@@ -41,7 +45,7 @@ const RenderCards = props => {
 RenderCards.propTypes = {
   dataToRender: PropTypes.array.isRequired,
   clickCard: PropTypes.func.isRequired,
-  selectedItem: PropTypes.shape(itemShape).isRequired,
+  selectedItem: PropTypes.shape(itemShape),
 };
 
 export default RenderCards;

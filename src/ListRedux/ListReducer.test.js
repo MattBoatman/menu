@@ -21,9 +21,9 @@ describe('list', () => {
       },
     );
     const expectedState = {
-        isFetching: true,
-        error: false,
-        listData: [],
+      isFetching: true,
+      error: false,
+      listData: [],
     };
 
     expect(reducerState).toEqual(expectedState);
@@ -34,9 +34,7 @@ describe('list', () => {
       {},
       {
         type: ActionTypes.GET_LIST_SUCCESS,
-        listData: [
-          { id: 1, type: 'taco', imageUrl: 'www.matthewboatman.com' },
-        ],
+        listData: [{ id: 1, type: 'taco', imageUrl: 'www.matthewboatman.com' }],
       },
     );
     const expectedState = {

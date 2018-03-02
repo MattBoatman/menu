@@ -24,12 +24,15 @@ describe('ItemActions', () => {
         { type: ActionTypes.GET_ITEM_REQUEST },
         {
           type: ActionTypes.GET_ITEM_SUCCESS,
-          item: [
-            { id: 1, type: 'taco', imageUrl: 'www.matthewboatman.com' },
-          ],
+          item: [{ id: 1, type: 'taco', imageUrl: 'www.matthewboatman.com' }],
         },
       ];
-      const store = mockStore();
+      const initialState = {
+        item: {
+          selectedItem: {},
+        },
+      };
+      const store = mockStore(initialState);
 
       return store.dispatch(ActionTypes.getItem(1)).then(() => {
         const actions = store.getActions();
@@ -45,12 +48,29 @@ describe('ItemActions', () => {
         { type: ActionTypes.GET_ITEM_REQUEST },
         { type: ActionTypes.GET_ITEM_FAILURE },
       ];
-      const store = mockStore();
+      const initialState = {
+        item: {
+          selectedItem: {},
+        },
+      };
+      const store = mockStore(initialState);
 
       return store.dispatch(ActionTypes.getItem(1)).then(() => {
         const actions = store.getActions();
         expect(actions).toEqual(expected);
       });
+    });
+    it('dont call the api and dispatch CLEAR_SELECTED_ITEM when the item in the store is the same as the one passed in', () => {
+      const expected = [{ type: ActionTypes.CLEAR_SELECTED_ITEM }];
+      const initialState = {
+        item: {
+          selectedItem: { itemId: 1 },
+        },
+      };
+      const store = mockStore(initialState);
+      store.dispatch(ActionTypes.getItem(1));
+      const actions = store.getActions();
+      expect(actions).toEqual(expected);
     });
   });
 });
