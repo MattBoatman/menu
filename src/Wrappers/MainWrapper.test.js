@@ -3,14 +3,15 @@ import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import MainWrapper from './MainWrapper';
 
-//TODO add sinon to test methods
 const minProps = {
   selectedCategory: {},
+  selectedItem: {},
   listData: [],
   categories: [],
   getListOfCategories: () => {},
   selectCategory: () => {},
   getListOfItems: () => {},
+  getItem: () => {},
 };
 describe('MainWrapper', () => {
   it('renders without crashing', () => {

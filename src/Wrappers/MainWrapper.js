@@ -10,6 +10,7 @@ import {
   selectCategory,
 } from '../CategoryRedux/CategoryActions';
 import { getListOfItems } from '../ListRedux/ListActions';
+import { getItem } from '../ItemRedux/ItemActions';
 import RenderCards from './RenderCards/RenderCards';
 
 const categoryShape = {
@@ -17,6 +18,21 @@ const categoryShape = {
   name: PropTypes.string,
   imageUrl: PropTypes.string,
   color: PropTypes.string,
+};
+
+const subItemsShape = {
+  description: PropTypes.string,
+  price: PropTypes.string,
+}
+
+const itemShape = {
+  itemId: PropTypes.number,
+  name: PropTypes.string,
+  imageUrl: PropTypes.string,
+  color: PropTypes.string,
+  price: PropTypes.string,
+  subItems: PropTypes.arrayOf(PropTypes.shape(subItemsShape)),
+  upgrades: PropTypes.shape(subItemsShape),
 };
 
 const listShape = {
@@ -30,11 +46,13 @@ const listShape = {
 class MainWrapper extends Component {
   static propTypes = {
     selectedCategory: PropTypes.shape(categoryShape),
+    selectedItem: PropTypes.shape(itemShape),
     listData: PropTypes.arrayOf(PropTypes.shape(listShape)),
     categories: PropTypes.arrayOf(PropTypes.shape(categoryShape)),
     getListOfCategories: PropTypes.func.isRequired,
     selectCategory: PropTypes.func.isRequired,
     getListOfItems: PropTypes.func.isRequired,
+    getItem: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
@@ -60,11 +78,13 @@ class MainWrapper extends Component {
             <RenderCards
               dataToRender={this.props.categories}
               clickCard={this.props.selectCategory}
+              selectedItem={this.props.selectedItem}
             />
           ) : (
             <RenderCards
               dataToRender={this.props.listData}
-              clickCard={this.props.selectCategory}
+              clickCard={this.props.getItem}
+              selectedItem={this.props.selectedItem}
             />
           )}
         </div>
@@ -74,10 +94,11 @@ class MainWrapper extends Component {
 }
 
 const mapStateToProps = state => {
-  const { category, list } = state;
+  const { category, list, item } = state;
   const { selectedCategory, categories } = category;
   const { listData } = list;
-  return { selectedCategory, categories, listData };
+  const { selectedItem } = item;
+  return { selectedCategory, categories, listData, selectedItem };
 };
 
 const mapDispatchToProps = dispatch => {
@@ -90,6 +111,9 @@ const mapDispatchToProps = dispatch => {
     },
     getListOfItems: selectedCategoryId => {
       dispatch(getListOfItems(selectedCategoryId));
+    },
+    getItem: item => {
+      dispatch(getItem(item.itemId));
     },
   };
 };
