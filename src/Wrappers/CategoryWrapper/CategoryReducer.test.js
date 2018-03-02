@@ -8,6 +8,7 @@ describe('category', () => {
             isFetching: false,
             error: false,
             categories: [],
+            selectedCategory: {},
         };
 
         expect(reducerState).toEqual(expectedState);
@@ -24,6 +25,7 @@ describe('category', () => {
             isFetching: true,
             error: false,
             categories: [],
+            selectedCategory: {},
         };
 
         expect(reducerState).toEqual(expectedState);

@@ -12,7 +12,7 @@ describe('CategoryActions', () => {
     });
     describe('getListOfCategories', () => {
         it('success: get request and success action', () => {
-            fetchMock.getOnce('undefined/menuCategories.json', { categories: [{ id: 1, type: 'taco', imageUrl: 'www.matthewboatman.com' }] });
+            fetchMock.getOnce('https://s3.amazonaws.com/staticresourcesformenu/menuCategories.json', { resourceList: [{ id: 1, type: 'taco', imageUrl: 'www.matthewboatman.com' }] });
             const expected = [
                 { type: ActionTypes.GET_CATEGORY_LIST_REQUEST },
                 { type: ActionTypes.GET_CATEGORY_LIST_SUCCESS, categories: [{ id: 1, type: 'taco', imageUrl: 'www.matthewboatman.com' }] },
@@ -25,7 +25,7 @@ describe('CategoryActions', () => {
             });
         });
         it('failure: get request and failure action', () => {
-            fetchMock.getOnce('undefined/menuCategories.json', { status: 404 });
+            fetchMock.getOnce('https://s3.amazonaws.com/staticresourcesformenu/menuCategories.json', { status: 404 });
             const expected = [
                 { type: ActionTypes.GET_CATEGORY_LIST_REQUEST },
                 { type: ActionTypes.GET_CATEGORY_LIST_FAILURE },
@@ -38,5 +38,10 @@ describe('CategoryActions', () => {
             });
         });
     });
-
+    describe('selectCategory', () => {
+        it('expect SELECT_CATEGORY type', () => {
+            const expected = { type: ActionTypes.SELECT_CATEGORY, category: { id: 2 } };
+            expect(ActionTypes.selectCategory({ id: 2 })).toEqual(expected);
+        });
+    })
 });
