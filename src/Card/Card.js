@@ -20,7 +20,6 @@ Card.propTypes = {
     title: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     clickCard: PropTypes.func.isRequired,
-    id: PropTypes.number.isRequired,
 };
 
 export default Card;
