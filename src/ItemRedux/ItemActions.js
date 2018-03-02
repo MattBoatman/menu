@@ -1,31 +1,39 @@
 export const GET_ITEM_REQUEST = 'GET_ITEM_REQUEST';
 export const GET_ITEM_SUCCESS = 'GET_ITEM_SUCCESS';
 export const GET_ITEM_FAILURE = 'GET_ITEM_FAILURE';
-export const SELECT_ITEM = 'SELECT_ITEM';
+export const CLEAR_SELECTED_ITEM = 'CLEAR_SELECTED_ITEM';
 
-const _requestItem = () => ({
+const requestItem = () => ({
   type: GET_ITEM_REQUEST,
 });
 
-const _requestItemSuccess = item => ({
+const requestItemSuccess = item => ({
   type: GET_ITEM_SUCCESS,
   item,
 });
 
-const _requestItemFailure = () => ({
+const requestItemFailure = () => ({
   type: GET_ITEM_FAILURE,
 });
 
-export const getItem = id => async dispatch => {
-  dispatch(_requestItem());
+export const clearSelectedItem = () => ({
+  type: CLEAR_SELECTED_ITEM,
+});
+
+export const getItem = id => async (dispatch, getState) => {
+  if (getState().item.selectedItem.itemId === id) {
+    dispatch(clearSelectedItem());
+    return;
+  }
+  dispatch(requestItem());
   try {
     const result = await fetch(
       `${process.env.REACT_APP_API_HOST}/information:${id}.json`,
     );
     const itemData = await result.json();
 
-    dispatch(_requestItemSuccess(itemData.resourceList));
+    dispatch(requestItemSuccess(itemData.resourceList));
   } catch (e) {
-    dispatch(_requestItemFailure());
+    dispatch(requestItemFailure());
   }
 };

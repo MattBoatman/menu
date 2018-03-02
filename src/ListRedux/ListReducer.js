@@ -28,6 +28,11 @@ function list(
         isFetching: false,
         error: true,
       };
+    case ActionTypes.CLEAR_LIST:
+      return {
+        ...state,
+        listData: [],
+      };
     default:
       return state;
   }

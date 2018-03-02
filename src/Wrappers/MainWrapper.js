@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import isEmpty from 'lodash/isEmpty';
-import isEqual from 'lodash/isEqual';
 import './MainWrapper.css';
 import Toolbar from '../Toolbar/Toolbar';
-import {
-  getListOfCategories,
-  selectCategory,
-} from '../CategoryRedux/CategoryActions';
-import { getListOfItems } from '../ListRedux/ListActions';
-import { getItem } from '../ItemRedux/ItemActions';
+import { getListOfCategories } from '../CategoryRedux/CategoryActions';
+import { getListOfItems, clearList } from '../ListRedux/ListActions';
+import { getItem, clearSelectedItem } from '../ItemRedux/ItemActions';
 import RenderCards from './RenderCards/RenderCards';
 
 const categoryShape = {
@@ -23,7 +18,7 @@ const categoryShape = {
 const subItemsShape = {
   description: PropTypes.string,
   price: PropTypes.string,
-}
+};
 
 const itemShape = {
   itemId: PropTypes.number,
@@ -45,40 +40,34 @@ const listShape = {
 
 class MainWrapper extends Component {
   static propTypes = {
-    selectedCategory: PropTypes.shape(categoryShape),
     selectedItem: PropTypes.shape(itemShape),
     listData: PropTypes.arrayOf(PropTypes.shape(listShape)),
     categories: PropTypes.arrayOf(PropTypes.shape(categoryShape)),
     getListOfCategories: PropTypes.func.isRequired,
-    selectCategory: PropTypes.func.isRequired,
     getListOfItems: PropTypes.func.isRequired,
     getItem: PropTypes.func.isRequired,
+    clearList: PropTypes.func.isRequired,
+    clearSelectedItem: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
     this.props.getListOfCategories();
   }
-  componentWillReceiveProps(props) {
-    if (
-      !isEmpty(props.selectedCategory) &&
-      !isEqual(props.selectedCategory, this.props.selectedCategory)
-    ) {
-      this.props.getListOfItems(props.selectedCategory.categoryId);
-    }
-  }
+
   render() {
     return (
       <div>
         <Toolbar
-          title="Boatman's Menu"
-          categoryType={this.props.selectedCategory.name}
+          clearList={this.props.clearList}
+          clearSelectedItem={this.props.clearSelectedItem}
+          hasListData={this.props.listData.length > 0}
+          hasCategoryData={this.props.categories.length > 0}
         />
         <div className="main-wrapper">
-          {isEmpty(this.props.selectedCategory) ? (
+          {this.props.listData.length === 0 ? (
             <RenderCards
               dataToRender={this.props.categories}
-              clickCard={this.props.selectCategory}
-              selectedItem={this.props.selectedItem}
+              clickCard={this.props.getListOfItems}
             />
           ) : (
             <RenderCards
@@ -95,10 +84,10 @@ class MainWrapper extends Component {
 
 const mapStateToProps = state => {
   const { category, list, item } = state;
-  const { selectedCategory, categories } = category;
+  const { categories } = category;
   const { listData } = list;
   const { selectedItem } = item;
-  return { selectedCategory, categories, listData, selectedItem };
+  return { categories, listData, selectedItem };
 };
 
 const mapDispatchToProps = dispatch => {
@@ -106,14 +95,17 @@ const mapDispatchToProps = dispatch => {
     getListOfCategories: () => {
       dispatch(getListOfCategories());
     },
-    selectCategory: category => {
-      dispatch(selectCategory(category));
-    },
-    getListOfItems: selectedCategoryId => {
-      dispatch(getListOfItems(selectedCategoryId));
+    getListOfItems: selectedCategory => {
+      dispatch(getListOfItems(selectedCategory.categoryId));
     },
     getItem: item => {
       dispatch(getItem(item.itemId));
+    },
+    clearList: () => {
+      dispatch(clearList());
+    },
+    clearSelectedItem: () => {
+      dispatch(clearSelectedItem());
     },
   };
 };

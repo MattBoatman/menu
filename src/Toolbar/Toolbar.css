@@ -1,11 +1,10 @@
 .title {
   font-size: 18px;
-  margin-right: auto;
-  font-weight: 800;
-}
-
-.categoryType {
-  padding: 2px;
+  font-weight: 700;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
 }
 
 .toolbarWrapper {

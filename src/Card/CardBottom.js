@@ -31,9 +31,7 @@ const style = {
 
 const CardBottom = props => {
   return (
-    <div
-      style={{ borderBottom: `7px solid ${props.color}`, borderRadius: 5 }}
-    >
+    <div style={{ borderBottom: `7px solid ${props.color}`, borderRadius: 5 }}>
       <div style={style.container}>
         {props.title && <CardTitle title={props.title} />}
         {props.price && <Price price={props.price} />}

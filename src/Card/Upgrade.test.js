@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import Price from './Price';
+import Upgrade from './Upgrade';
 
 const minProps = {
-  Price: '1.0000000000',
+  description: 'i am a description',
+  isUpgrade: false,
 };
-describe('Price', () => {
+describe('Upgrade', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(<Price {...minProps} />);
+    const wrapper = shallow(<Upgrade {...minProps} />);
     expect(wrapper.length).toEqual(1);
   });
 });

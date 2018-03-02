@@ -1,6 +1,7 @@
 export const GET_LIST_REQUEST = 'GET_LIST_REQUEST';
 export const GET_LIST_SUCCESS = 'GET_LIST_SUCCESS';
 export const GET_LIST_FAILURE = 'GET_LIST_FAILURE';
+export const CLEAR_LIST = 'CLEAR_LIST';
 
 const _requestList = () => ({
   type: GET_LIST_REQUEST,
@@ -28,3 +29,7 @@ export const getListOfItems = id => async dispatch => {
     dispatch(_requestListFailure());
   }
 };
+
+export const clearList = () => ({
+  type: CLEAR_LIST,
+});

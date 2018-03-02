@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import AvatarImage from './AvatarImage';
 
 const minProps = {
-    imageUrl: 'I am a title'
+  imageUrl: 'I am a title',
 };
 describe('AvatarImage', () => {
   it('renders without crashing', () => {

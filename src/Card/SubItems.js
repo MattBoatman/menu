@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Price from './Price';
+import Upgrade from './Upgrade';
 
 const style = {
   subItemWrapper: {
@@ -9,21 +10,12 @@ const style = {
     padding: '3px 0',
     marginTop: 10,
   },
-  upgrade: {
-    color: 'red',
-    fontWeight: 800,
-  },
 };
-const subItemsShape = {
-  description: PropTypes.string,
-  price: PropTypes.string,
-};
+
 const SubItems = props => {
   return (
     <div style={style.subItemWrapper}>
-      <span style={props.isUpgrade ? style.upgrade : {}}>
-        {props.description}
-      </span>
+      <Upgrade description={props.description} isUpgrade={props.isUpgrade} />
       <Price price={props.price} />
     </div>
   );

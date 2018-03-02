@@ -7,7 +7,7 @@ describe('item', () => {
     const expectedState = {
       isFetching: false,
       error: false,
-      selectedItem: {itemId: null},
+      selectedItem: {},
     };
 
     expect(reducerState).toEqual(expectedState);
@@ -21,9 +21,9 @@ describe('item', () => {
       },
     );
     const expectedState = {
-        isFetching: true,
-        error: false,
-        selectedItem: {itemId: null},
+      isFetching: true,
+      error: false,
+      selectedItem: {},
     };
 
     expect(reducerState).toEqual(expectedState);
@@ -34,14 +34,14 @@ describe('item', () => {
       {},
       {
         type: ActionTypes.GET_ITEM_SUCCESS,
-        item: [
-          { id: 1, type: 'taco', imageUrl: 'www.matthewboatman.com' },
-        ],
+        item: [{ id: 1, type: 'taco', imageUrl: 'www.matthewboatman.com' }],
       },
     );
     const expectedState = {
       isFetching: false,
-      selectedItem: [{ id: 1, type: 'taco', imageUrl: 'www.matthewboatman.com' }],
+      selectedItem: [
+        { id: 1, type: 'taco', imageUrl: 'www.matthewboatman.com' },
+      ],
     };
 
     expect(reducerState).toEqual(expectedState);

@@ -4,7 +4,10 @@ import { shallow } from 'enzyme';
 import Toolbar from './Toolbar';
 
 const minProps = {
-  title: 'Boatman',
+  hasListData: true,
+  hasCategoryData: false,
+  clearList: () => {},
+  clearSelectedItem: () => {},
 };
 
 describe('Toolbar', () => {
@@ -12,8 +15,8 @@ describe('Toolbar', () => {
     const wrapper = shallow(<Toolbar {...minProps} />);
     expect(wrapper.length).toEqual(1);
   });
-  it('render title that was specified in the prop', () => {
+  it('renders one toolbar button when only one bool is true', () => {
     const wrapper = shallow(<Toolbar {...minProps} />);
-    expect(wrapper.find('span.title').text()).toEqual(minProps.title);
+    expect(wrapper.find('ToolbarButton').length).toEqual(1);
   });
 });
