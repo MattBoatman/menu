@@ -6,7 +6,7 @@ import './CategoryWrapper.css';
 import Card from '../../Card/Card';
 
 const categoryShape = {
-  id: PropTypes.number.isRequired,
+  categoryId: PropTypes.number.isRequired,
   type: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
@@ -27,8 +27,7 @@ class CategoryWrapper extends Component {
       <div className="categoryWrapper">
         {this.props.categories.map(category => {
           return <Card
-            key={category.id}
-            id={category.id}
+            key={category.categoryId}
             title={category.type}
             clickCard={() => this.props.selectCategory(category)}
             imageUrl={category.imageUrl}
