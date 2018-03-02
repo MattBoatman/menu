@@ -7,7 +7,7 @@ function category(
     categories: [],
     selectedCategory: {},
   },
-  action
+  action,
 ) {
   switch (action.type) {
     case ActionTypes.GET_CATEGORY_LIST_REQUEST:
@@ -22,19 +22,19 @@ function category(
       return {
         ...state,
         isFetching: false,
-        categories: action.categories
+        categories: action.categories,
       };
     case ActionTypes.GET_CATEGORY_LIST_FAILURE:
       return {
         ...state,
         isFetching: false,
         error: true,
-        categories: []
+        categories: [],
       };
     case ActionTypes.SELECT_CATEGORY:
       return {
         ...state,
-        selectedCategory: action.category
+        selectedCategory: action.category,
       };
     default:
       return state;

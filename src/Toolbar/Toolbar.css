@@ -1,15 +1,19 @@
 .title {
-  padding: 12px;
   font-size: 18px;
-  text-transform: uppercase;
   margin-right: auto;
-  letter-spacing: 0.15em;
   font-weight: 800;
-  height: 100%;
-  display: inline-block;
+}
+
+.categoryType {
+  padding: 2px;
 }
 
 .toolbarWrapper {
   border-bottom: 1px solid #ffffff;
   color: #ffffff;
+  display: flex;
+  padding: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+
 }
