@@ -1,19 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Card.css';
+import CardBottom from './CardBottom';
+import AvatarImage from './AvatarImage';
+
+const subItemsShape = {
+  description: PropTypes.string,
+  price: PropTypes.string,
+}
+
+const itemShape = {
+  itemId: PropTypes.number,
+  name: PropTypes.string,
+  imageUrl: PropTypes.string,
+  color: PropTypes.string,
+  price: PropTypes.string,
+  subItems: PropTypes.arrayOf(PropTypes.shape(subItemsShape)),
+  upgrades: PropTypes.shape(subItemsShape),
+};
 
 const Card = props => {
   return (
     <div className="card" onClick={props.clickCard}>
-      <div className="imageWrapper">
-        <img src={props.imageUrl} alt="Food" className="img" />
-      </div>
-      <div
-        className="container"
-        style={{ borderBottom: `7px solid ${props.color}` }}
-      >
-        <div className="cardTitle">{props.title}</div>
-      </div>
+      <AvatarImage imageUrl={props.imageUrl} />
+      <CardBottom moreInformation={props.moreInformation} color={props.color} title={props.title} price={props.price} />
     </div>
   );
 };
@@ -23,6 +33,8 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
   clickCard: PropTypes.func.isRequired,
+  price: PropTypes.string,
+  moreInformation: PropTypes.shape(itemShape),
 };
 
 export default Card;

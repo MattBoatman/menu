@@ -6,6 +6,7 @@ import RenderCards from './RenderCards';
 const minProps = {
   clickCard: () => {},
   dataToRender: [],
+  selectedItem: {},
 };
 describe('RenderCards', () => {
   it('renders without crashing', () => {

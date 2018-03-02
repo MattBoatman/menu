@@ -1,28 +1,30 @@
-import * as ActionTypes from './ListActions';
+import * as ActionTypes from './ItemActions';
 
-function list(
+function item(
   state = {
     isFetching: false,
     error: false,
-    listData: [],
+    selectedItem: {
+      itemId: null,
+    },
   },
   action,
 ) {
   switch (action.type) {
-    case ActionTypes.GET_LIST_REQUEST:
+    case ActionTypes.GET_ITEM_REQUEST:
       return {
         ...state,
         isFetching: true,
         error: false,
-        listData: [],
+        selectedItem: { itemId: null },
       };
-    case ActionTypes.GET_LIST_SUCCESS:
+    case ActionTypes.GET_ITEM_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        listData: action.listData,
+        selectedItem: action.item,
       };
-    case ActionTypes.GET_LIST_FAILURE:
+    case ActionTypes.GET_ITEM_FAILURE:
       return {
         ...state,
         isFetching: false,
@@ -33,4 +35,4 @@ function list(
   }
 }
 
-export default list;
+export default item;
