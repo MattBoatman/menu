@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getListOfCategories } from './CategoryActions';
+import { getListOfCategories, selectCategory } from './CategoryActions';
 import './CategoryWrapper.css';
 import Card from '../../Card/Card';
 
@@ -9,6 +9,7 @@ const categoryShape = {
   id: PropTypes.number.isRequired,
   type: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
 }
 
 class CategoryWrapper extends Component {
@@ -20,9 +21,7 @@ class CategoryWrapper extends Component {
   componentDidMount() {
     this.props.getListOfCategories();
   }
-  clickCard = (id) => {
-    console.log('clicked', id)
-  }
+
   render() {
     return (
       <div className="categoryWrapper">
@@ -31,8 +30,9 @@ class CategoryWrapper extends Component {
             key={category.id}
             id={category.id}
             title={category.type}
-            clickCard={this.clickCard}
-            imageUrl={category.imageUrl} />
+            clickCard={() => this.props.selectCategory(category)}
+            imageUrl={category.imageUrl}
+            color={category.color} />
         })}
       </div>
     );
@@ -50,6 +50,9 @@ const mapDispatchToProps = dispatch => {
   return {
     getListOfCategories: () => {
       dispatch(getListOfCategories());
+    },
+    selectCategory: (category) => {
+      dispatch(selectCategory(category));
     }
   };
 };

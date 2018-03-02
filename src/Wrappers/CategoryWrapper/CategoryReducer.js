@@ -5,6 +5,7 @@ function category(
     isFetching: false,
     error: false,
     categories: [],
+    selectedCategory: {},
   },
   action
 ) {
@@ -15,19 +16,25 @@ function category(
         isFetching: true,
         error: false,
         categories: [],
+        selectedCategory: {},
       };
     case ActionTypes.GET_CATEGORY_LIST_SUCCESS:
-    return {
+      return {
         ...state,
         isFetching: false,
         categories: action.categories
       };
     case ActionTypes.GET_CATEGORY_LIST_FAILURE:
-    return {
+      return {
         ...state,
         isFetching: false,
         error: true,
-        categories: [],
+        categories: []
+      };
+    case ActionTypes.SELECT_CATEGORY:
+      return {
+        ...state,
+        selectedCategory: action.category
       };
     default:
       return state;
