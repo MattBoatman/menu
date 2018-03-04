@@ -4,19 +4,20 @@ import { shallow } from 'enzyme';
 import Toolbar from './Toolbar';
 
 const minProps = {
-  hasListData: true,
-  hasCategoryData: false,
+  name: '',
   clearList: () => {},
   clearSelectedItem: () => {},
 };
 
 describe('Toolbar', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(<Toolbar {...minProps} />);
+    const wrapper = shallow(<Toolbar.WrappedComponent {...minProps} />);
     expect(wrapper.length).toEqual(1);
   });
-  it('renders one toolbar button when only one bool is true', () => {
-    const wrapper = shallow(<Toolbar {...minProps} />);
-    expect(wrapper.find('ToolbarButton').length).toEqual(1);
+  it('renders two toolbar buttons when a name is passed in', () => {
+    const wrapper = shallow(
+      <Toolbar.WrappedComponent {...minProps} name="taco" />,
+    );
+    expect(wrapper.find('ToolbarButton').length).toEqual(2);
   });
 });

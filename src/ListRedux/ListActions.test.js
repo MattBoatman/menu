@@ -21,7 +21,7 @@ describe('ListActions', () => {
         },
       );
       const expected = [
-        { type: ActionTypes.GET_LIST_REQUEST },
+        { type: ActionTypes.GET_LIST_REQUEST, name: 'taco' },
         {
           type: ActionTypes.GET_LIST_SUCCESS,
           listData: [
@@ -31,10 +31,12 @@ describe('ListActions', () => {
       ];
       const store = mockStore();
 
-      return store.dispatch(ActionTypes.getListOfItems(1)).then(() => {
-        const actions = store.getActions();
-        expect(actions).toEqual(expected);
-      });
+      return store
+        .dispatch(ActionTypes.getListOfItems({ categoryId: 1, name: 'taco' }))
+        .then(() => {
+          const actions = store.getActions();
+          expect(actions).toEqual(expected);
+        });
     });
     it('failure: get request and failure action', () => {
       fetchMock.getOnce(
@@ -42,15 +44,17 @@ describe('ListActions', () => {
         { status: 404 },
       );
       const expected = [
-        { type: ActionTypes.GET_LIST_REQUEST },
+        { type: ActionTypes.GET_LIST_REQUEST, name: 'taco' },
         { type: ActionTypes.GET_LIST_FAILURE },
       ];
       const store = mockStore();
 
-      return store.dispatch(ActionTypes.getListOfItems(1)).then(() => {
-        const actions = store.getActions();
-        expect(actions).toEqual(expected);
-      });
+      return store
+        .dispatch(ActionTypes.getListOfItems({ categoryId: 1, name: 'taco' }))
+        .then(() => {
+          const actions = store.getActions();
+          expect(actions).toEqual(expected);
+        });
     });
   });
 });

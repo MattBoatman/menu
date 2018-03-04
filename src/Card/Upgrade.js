@@ -6,11 +6,14 @@ const style = {
     color: 'red',
     fontWeight: 800,
   },
+  normal: {
+    fontWeight: 400,
+  },
 };
 
 const Upgrade = props => {
   return (
-    <span style={props.isUpgrade ? style.upgrade : {}}>
+    <span style={props.isUpgrade ? style.upgrade : style.normal}>
       {props.description}
     </span>
   );
