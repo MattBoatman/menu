@@ -5,6 +5,7 @@ import CardTitle from './CardTitle';
 
 const minProps = {
   title: 'I am a title',
+  enlargeTitle: false,
 };
 describe('CardTitle', () => {
   it('renders without crashing', () => {

@@ -21,8 +21,14 @@ const itemShape = {
 
 const Card = props => {
   return (
-    <div className="card" onClick={props.clickCard}>
-      <AvatarImage imageUrl={props.imageUrl} />
+    <div
+      className={props.moreInformation ? 'selectedCard' : 'card'}
+      onClick={props.clickCard}
+    >
+      <AvatarImage
+        imageUrl={props.imageUrl}
+        enlargeImage={props.moreInformation !== null}
+      />
       <CardBottom
         moreInformation={props.moreInformation}
         color={props.color}

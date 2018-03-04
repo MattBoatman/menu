@@ -5,6 +5,7 @@ import AvatarImage from './AvatarImage';
 
 const minProps = {
   imageUrl: 'I am a title',
+  enlargeImage: false,
 };
 describe('AvatarImage', () => {
   it('renders without crashing', () => {

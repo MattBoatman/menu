@@ -21,11 +21,10 @@ const itemShape = {
 
 const style = {
   wrapper: {
-    backgroundColor: '#e3e3e3',
-    borderTop: '1px solid #c9c9c9',
+    backgroundColor: '#F9F9F9',
     padding: 12,
     color: '#5a5c51',
-    fontSize: 12,
+    flex: '1 1 auto',
     fontWeight: 300,
   },
 };

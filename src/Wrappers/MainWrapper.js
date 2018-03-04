@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import './MainWrapper.css';
 import Toolbar from '../Toolbar/Toolbar';
 import { getListOfCategories } from '../CategoryRedux/CategoryActions';
-import { getListOfItems, clearList } from '../ListRedux/ListActions';
-import { getItem, clearSelectedItem } from '../ItemRedux/ItemActions';
+import { getListOfItems } from '../ListRedux/ListActions';
+import { getItem } from '../ItemRedux/ItemActions';
 import RenderCards from './RenderCards/RenderCards';
 
 const categoryShape = {
@@ -46,8 +46,6 @@ class MainWrapper extends Component {
     getListOfCategories: PropTypes.func.isRequired,
     getListOfItems: PropTypes.func.isRequired,
     getItem: PropTypes.func.isRequired,
-    clearList: PropTypes.func.isRequired,
-    clearSelectedItem: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
@@ -57,12 +55,7 @@ class MainWrapper extends Component {
   render() {
     return (
       <div>
-        <Toolbar
-          clearList={this.props.clearList}
-          clearSelectedItem={this.props.clearSelectedItem}
-          hasListData={this.props.listData.length > 0}
-          hasCategoryData={this.props.categories.length > 0}
-        />
+        <Toolbar />
         <div className="main-wrapper">
           {this.props.listData.length === 0 ? (
             <RenderCards
@@ -96,16 +89,10 @@ const mapDispatchToProps = dispatch => {
       dispatch(getListOfCategories());
     },
     getListOfItems: selectedCategory => {
-      dispatch(getListOfItems(selectedCategory.categoryId));
+      dispatch(getListOfItems(selectedCategory));
     },
     getItem: item => {
       dispatch(getItem(item.itemId));
-    },
-    clearList: () => {
-      dispatch(clearList());
-    },
-    clearSelectedItem: () => {
-      dispatch(clearSelectedItem());
     },
   };
 };

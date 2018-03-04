@@ -3,30 +3,33 @@ export const GET_LIST_SUCCESS = 'GET_LIST_SUCCESS';
 export const GET_LIST_FAILURE = 'GET_LIST_FAILURE';
 export const CLEAR_LIST = 'CLEAR_LIST';
 
-const _requestList = () => ({
+const requestList = name => ({
   type: GET_LIST_REQUEST,
+  name,
 });
 
-const _requestListSuccess = listData => ({
+const requestListSuccess = listData => ({
   type: GET_LIST_SUCCESS,
   listData,
 });
 
-const _requestListFailure = () => ({
+const requestListFailure = () => ({
   type: GET_LIST_FAILURE,
 });
 
-export const getListOfItems = id => async dispatch => {
-  dispatch(_requestList());
+export const getListOfItems = selectedCategory => async dispatch => {
+  dispatch(requestList(selectedCategory.name));
   try {
     const result = await fetch(
-      `${process.env.REACT_APP_API_HOST}/list:${id}.json`,
+      `${process.env.REACT_APP_API_HOST}/list:${
+        selectedCategory.categoryId
+      }.json`,
     );
     const listData = await result.json();
 
-    dispatch(_requestListSuccess(listData.resourceList));
+    dispatch(requestListSuccess(listData.resourceList));
   } catch (e) {
-    dispatch(_requestListFailure());
+    dispatch(requestListFailure());
   }
 };
 

@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import MainWrapper from './MainWrapper';
+import Toolbar from '../Toolbar/Toolbar';
 
 const minProps = {
-  selectedCategory: {},
   selectedItem: {},
   listData: [],
   categories: [],
@@ -12,8 +12,6 @@ const minProps = {
   selectCategory: () => {},
   getListOfItems: () => {},
   getItem: () => {},
-  clearList: () => {},
-  clearSelectedItem: () => {},
 };
 describe('MainWrapper', () => {
   it('renders without crashing', () => {
@@ -22,7 +20,7 @@ describe('MainWrapper', () => {
   });
   it('contains a Toolbar component', () => {
     const wrapper = shallow(<MainWrapper.WrappedComponent {...minProps} />);
-    expect(wrapper.find('Toolbar').length).toEqual(1);
+    expect(wrapper.find(Toolbar).length).toEqual(1);
   });
   it('renders 1 RenderCard components when selectedCategory is empty and categories has a single object', () => {
     const singleObject = [

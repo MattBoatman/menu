@@ -5,6 +5,7 @@ function list(
     isFetching: false,
     error: false,
     listData: [],
+    name: '',
   },
   action,
 ) {
@@ -14,6 +15,7 @@ function list(
         ...state,
         isFetching: true,
         error: false,
+        name: action.name,
         listData: [],
       };
     case ActionTypes.GET_LIST_SUCCESS:
@@ -27,11 +29,13 @@ function list(
         ...state,
         isFetching: false,
         error: true,
+        name: '',
       };
     case ActionTypes.CLEAR_LIST:
       return {
         ...state,
         listData: [],
+        name: '',
       };
     default:
       return state;

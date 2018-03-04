@@ -8,6 +8,7 @@ describe('list', () => {
       isFetching: false,
       error: false,
       listData: [],
+      name: '',
     };
 
     expect(reducerState).toEqual(expectedState);
@@ -18,12 +19,14 @@ describe('list', () => {
       {},
       {
         type: ActionTypes.GET_LIST_REQUEST,
+        name: 'taco',
       },
     );
     const expectedState = {
       isFetching: true,
       error: false,
       listData: [],
+      name: 'taco',
     };
 
     expect(reducerState).toEqual(expectedState);
@@ -55,6 +58,7 @@ describe('list', () => {
     const expectedState = {
       isFetching: false,
       error: true,
+      name: '',
     };
 
     expect(reducerState).toEqual(expectedState);
