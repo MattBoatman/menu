@@ -7,12 +7,16 @@ import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './rootReducer';
 import MainWrapper from './Wrappers/MainWrapper';
 import './index.css';
+import Errors from './Errors/Errors';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
-    <MainWrapper />
+    <div>
+      <Errors />
+      <MainWrapper />
+    </div>
   </Provider>,
   document.getElementById('root'),
 );
