@@ -1,11 +1,15 @@
 .card {
-  width: 48%;
+  width: 40%;
   background-color: #ffffff;
   margin-top: 20px;
   box-shadow: 0 4px 8px 0 rgba(219, 205, 205, 0.3);
   transition: 0.2s;
   border-radius: 5px;
   cursor: pointer;
+  border: none;
+  padding: 0;
+  font-family: 'futura-pt', sans-serif;
+  font-size: 1em;
 }
 
 .card:hover {
@@ -13,8 +17,8 @@
 }
 
 .selectedCard {
-  width: 98%;
-  min-height: 300px;
+  border: none;
+  width: 58%;
   background-color: #ffffff;
   margin-top: 20px;
   box-shadow: 0 4px 8px 0 rgba(219, 205, 205, 0.3);
@@ -22,13 +26,18 @@
   border-radius: 5px;
   cursor: pointer;
   display: flex;
-  transition: all 0.5s;
+  padding: 0;
+  font-family: 'futura-pt', sans-serif;
+  font-size: 1.1em;
+  transition: all 0.25s;
+  align-items: normal;
+  text-align: inherit;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 600px) {
   .card,
   .selectedCard {
     width: 95%;
-    font-size: 0.65em !important;
+    font-size: 0.9em !important;
   }
 }

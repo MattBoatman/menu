@@ -17,9 +17,10 @@ const itemShape = {
 
 const Card = props => {
   return (
-    <div
+    <button
       className={props.moreInformation ? 'selectedCard' : 'card'}
       onClick={props.clickCard}
+      tabIndex="0"
     >
       <AvatarImage
         imageUrl={props.imageUrl}
@@ -31,7 +32,7 @@ const Card = props => {
         title={props.title}
         price={props.price}
       />
-    </div>
+    </button>
   );
 };
 
