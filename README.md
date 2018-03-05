@@ -16,11 +16,13 @@ Tech Decisions:
 
 I decided to use Redux and Redux Thunk as the main backbone to this site. I prefer these as I prefer delegating business logic out to the state store rather than local state. This could have been done using local state, but I think this is much more readable and scalable. A logical next feature would be a shopping cart, and with this current setup - that would be easy. If I were to use local state that would require many props to be passed up and down the tree. I also prefer writing tests for redux applications as mocking out the store often proves out easier than mocking out components.
 
+The application sort of lent itself to 3 logical wrappers. One for categories, list, and items. When I started to flesh those out it became apparent that only one was really needed as the wrappers were all basically identical with different callbacks. `MainWrapper.js` could be argued that it does too much, but if you break down what it those other wrappers look like, it makes sense to have one wrapper controlling the data flow.
+
 I am hosting the website on AWS pulling resources out of a bucket I set up.  [Website URL](http://menuwebsite.s3-website-us-east-1.amazonaws.com/)
 
 This website is mobile and keyboard friendly.
 
-Navigation is done using the breadcrumb.
+Navigation is done using the toolbar. This toolbar is redux connected and will update a breadcrumb while you navigate.
 
 
 Edge Cases:
