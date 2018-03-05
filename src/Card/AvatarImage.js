@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const style = {
   imageWrapper: {
-    height: 200,
+    height: 150,
   },
   enlargeImage: {
     width: '30%',
