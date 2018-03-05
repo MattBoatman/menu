@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This website was inspired by [Los Guachos](http://los-guachos.com/menu/). (Text for the menu was taken directly from there, grammar and spelling mistakes included for authenticity)
 
-##Requirements:
+## Requirements:
 
 Create a menu website using React. Have pages for a list of categories, items, and single item views.
 
