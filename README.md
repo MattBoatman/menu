@@ -60,3 +60,5 @@ Handle loading indicators. I started to add a redux connected loading indicator 
 Transition to list view could be better.
 
 Screen reader optimization.
+
+This website was tested in Chrome and Firefox.
