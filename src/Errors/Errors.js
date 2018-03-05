@@ -1,36 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import find from 'lodash/find';
+import Notification from '../Notification/Notification';
 
-const style = {
-  error: {
-    position: 'absolute',
-    backgroundColor: '#ffffff',
-    top: 0,
-    right: 0,
-    padding: 24,
-    border: '1px solid #000000',
-    margin:  24,
-  },
-};
 class Errors extends Component {
   state = {
     show: true,
   };
-componentWillReceiveProps(props) {
-    if(props.error){
-        setTimeout(() => {
-            this.setState({show: true})
-        })
-        setTimeout(() => {
-            this.setState({show: false})
-        }, 3000)
+  componentWillReceiveProps(props) {
+    if (props.error) {
+      setTimeout(() => {
+        this.setState({ show: true });
+      });
+      setTimeout(() => {
+        this.setState({ show: false });
+      }, 3000);
     }
-}
+  }
 
   render() {
     if (this.props.error) {
-      return (this.state.show && <div id="error" style={style.error}>Something went wrong.</div>);
+      return (
+        this.state.show && (
+          <Notification message="We hit a snag, please try again!" />
+        )
+      );
     }
     return null;
   }

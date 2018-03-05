@@ -31,13 +31,14 @@ const MoreInformationBlock = props => {
             />
           );
         })}
-      {(props.moreInformation.upgrades && props.moreInformation.upgrades.length > 0) && (
-        <SubItems
-          description={props.moreInformation.upgrades.description}
-          price={props.moreInformation.upgrades.price}
-          isUpgrade
-        />
-      )}
+      {props.moreInformation.upgrades &&
+        props.moreInformation.upgrades.length > 0 && (
+          <SubItems
+            description={props.moreInformation.upgrades.description}
+            price={props.moreInformation.upgrades.price}
+            isUpgrade
+          />
+        )}
     </div>
   );
 };
