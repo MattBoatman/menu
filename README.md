@@ -51,11 +51,11 @@ There is an ErrorBoundary component wrapping the cards. It is unlikely to see th
 
 You can see the redux connected error message if you fudge one of the URLs.
 
+If you would like to see the loading indicator go into `index.js` and uncomment the `Loader` component. This watches the state tree for isFetching. With how fast these calls were, I was not entirely happy with what it looked like.
+
 ## Future Improvements:
 
 The images are just all random sizes pulled from Google. This could be optimized as I do percent sizes so it is not consistent.
-
-Handle loading indicators. I started to add a redux connected loading indicator for when the state machine has `isFetching: true` but the resources are so small all I would get is a annoying flash of a loader. I also did not think adding a timeout was appropriate.
 
 Transition to list view could be better.
 

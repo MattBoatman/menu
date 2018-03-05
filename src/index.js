@@ -8,6 +8,7 @@ import rootReducer from './rootReducer';
 import MainWrapper from './Wrappers/MainWrapper';
 import './index.css';
 import Errors from './Errors/Errors';
+import Loader from './Loader/Loader';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
@@ -15,6 +16,7 @@ ReactDOM.render(
   <Provider store={store}>
     <div>
       <Errors />
+      {/* <Loader /> */}
       <MainWrapper />
     </div>
   </Provider>,

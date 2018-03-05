@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { categoryShape, itemShape, listShape} from '../dataShapes';
+import { categoryShape, itemShape, listShape } from '../dataShapes';
 import { getListOfCategories } from '../CategoryRedux/CategoryActions';
 import { getListOfItems } from '../ListRedux/ListActions';
 import { getItem } from '../ItemRedux/ItemActions';
 import RenderCards from './RenderCards/RenderCards';
 import Toolbar from '../Toolbar/Toolbar';
 import './MainWrapper.css';
-
 
 class MainWrapper extends Component {
   static propTypes = {
