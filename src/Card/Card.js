@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import './Card.css';
 import CardBottom from './CardBottom';
 import AvatarImage from './AvatarImage';
-
-const subItemsShape = {
-  description: PropTypes.string,
-  price: PropTypes.string,
-};
+import { subItemsShape } from '../dataShapes';
 
 const itemShape = {
   itemId: PropTypes.number,
