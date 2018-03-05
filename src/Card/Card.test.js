@@ -14,9 +14,10 @@ describe('Card', () => {
     const wrapper = shallow(<Card {...minProps} />);
     expect(wrapper.length).toEqual(1);
   });
-  it('renders an AvatarImage component and CardBottom component', () => {
+  it('renders an AvatarImage component, CardBottom component, and ErrorBoundary', () => {
     const wrapper = shallow(<Card {...minProps} />);
     expect(wrapper.find('AvatarImage').length).toEqual(1);
     expect(wrapper.find('CardBottom').length).toEqual(1);
+    expect(wrapper.find('ErrorBoundary').length).toEqual(1);
   });
 });

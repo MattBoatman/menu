@@ -5,7 +5,6 @@ import CardTitle from './CardTitle';
 import MoreInformationBlock from './MoreInformationBlock';
 import { itemShape } from '../dataShapes';
 
-
 const style = {
   container: {
     padding: 16,

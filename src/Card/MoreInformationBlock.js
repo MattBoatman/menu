@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import isEmpty from 'lodash/isEmpty';
 import MoreInformationDescription from './MoreInformationDescription';
 import SubItems from './SubItems';
 import { itemShape } from '../dataShapes';
@@ -32,7 +31,7 @@ const MoreInformationBlock = props => {
             />
           );
         })}
-      {!isEmpty(props.moreInformation.upgrades) && (
+      {(props.moreInformation.upgrades && props.moreInformation.upgrades.length > 0) && (
         <SubItems
           description={props.moreInformation.upgrades.description}
           price={props.moreInformation.upgrades.price}

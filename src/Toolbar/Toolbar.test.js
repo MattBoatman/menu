@@ -19,5 +19,6 @@ describe('Toolbar', () => {
       <Toolbar.WrappedComponent {...minProps} name="taco" />,
     );
     expect(wrapper.find('ToolbarButton').length).toEqual(2);
+    expect(wrapper.find('ToolbarButton').get(1).props.text).toEqual('taco');
   });
 });

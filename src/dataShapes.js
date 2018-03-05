@@ -8,7 +8,7 @@ export const categoryShape = {
     color: PropTypes.string,
   };
 
- export const subItemsShape = {
+const subItemsShape = {
     description: PropTypes.string,
     price: PropTypes.string,
   };
