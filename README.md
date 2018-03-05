@@ -14,6 +14,26 @@ When I thought of the initial design, I did not think "full pages" needed to be 
 
 I am hosting the website on AWS pulling resources out of a bucket I set up.  [Website URL](http://menuwebsite.s3-website-us-east-1.amazonaws.com/)
 
+## Installation and running tests
+
+### Installation
+
+`git clone https://github.com/MattBoatman/menu.git`
+
+`cd menu`
+
+`yarn install`
+
+`npm start`
+
+Browser should open a window but if not, paste `http://localhost:3000/` in url.
+
+### Running tests
+
+`npm test`
+
+Then press `a` to run all tests.
+
 
 ## Tech Decisions:
 
@@ -32,6 +52,8 @@ There is an ErrorBoundary component wrapping the cards. It is unlikely to see th
 You can see the redux connected error message if you fudge one of the URLs.
 
 ## Future Improvements:
+
+The images are just all random sizes pulled from Google. This could be optimized as I do percent sizes so it is not consistent.
 
 Handle loading indicators. I started to add a redux connected loading indicator for when the state machine has `isFetching: true` but the resources are so small all I would get is a annoying flash of a loader. I also did not think adding a timeout was appropriate.
 
