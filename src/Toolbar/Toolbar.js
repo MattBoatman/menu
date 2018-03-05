@@ -6,9 +6,10 @@ import { clearSelectedItem } from '../ItemRedux/ItemActions';
 import ToolbarButton from './ToolbarButton';
 
 const styles = {
-  title: {
+  carat: {
     fontWeight: 700,
     color: '#ffffff',
+    paddingTop: 3,
   },
 
   toolbarWrapper: {
@@ -28,7 +29,7 @@ const Toolbar = props => {
   return (
     <div style={styles.toolbarWrapper}>
       <ToolbarButton text="Menu" onClick={clearData} />
-      <span style={styles.title}>></span>
+      <span style={styles.carat}>></span>
       {props.name && (
         <ToolbarButton text={props.name} onClick={props.clearSelectedItem} />
       )}

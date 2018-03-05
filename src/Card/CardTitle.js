@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 const style = {
   cardTitle: {
-    fontWeight: 800,
+    fontWeight: 700,
     fontSize: '1.1em',
   },
   enlargeTitle: {
     fontWeight: 800,
-    fontSize: '1.3em',
+    fontSize: '1.2em',
   },
 };
 const CardTitle = props => {
