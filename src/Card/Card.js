@@ -3,39 +3,27 @@ import PropTypes from 'prop-types';
 import './Card.css';
 import CardBottom from './CardBottom';
 import AvatarImage from './AvatarImage';
-
-const subItemsShape = {
-  description: PropTypes.string,
-  price: PropTypes.string,
-};
-
-const itemShape = {
-  itemId: PropTypes.number,
-  name: PropTypes.string,
-  imageUrl: PropTypes.string,
-  color: PropTypes.string,
-  price: PropTypes.string,
-  subItems: PropTypes.arrayOf(PropTypes.shape(subItemsShape)),
-  upgrades: PropTypes.shape(subItemsShape),
-};
+import { itemShape } from '../dataShapes';
+import ErrorBoundary from '../Errors/ErrorBoundary';
 
 const Card = props => {
   return (
     <button
       className={props.moreInformation ? 'selectedCard' : 'card'}
       onClick={props.clickCard}
-      tabIndex="0"
     >
-      <AvatarImage
-        imageUrl={props.imageUrl}
-        enlargeImage={props.moreInformation !== null}
-      />
-      <CardBottom
-        moreInformation={props.moreInformation}
-        color={props.color}
-        title={props.title}
-        price={props.price}
-      />
+      <ErrorBoundary>
+        <AvatarImage
+          imageUrl={props.imageUrl}
+          enlargeImage={props.moreInformation !== null}
+        />
+        <CardBottom
+          moreInformation={props.moreInformation}
+          color={props.color}
+          title={props.title}
+          price={props.price}
+        />
+      </ErrorBoundary>
     </button>
   );
 };

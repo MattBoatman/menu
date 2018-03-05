@@ -15,7 +15,7 @@ describe('MoreInformationBlock', () => {
     const wrapper = shallow(<MoreInformationBlock {...minProps} />);
     expect(wrapper.length).toEqual(1);
   });
-  it('render a 1 MoreInformationDescription and 2 SubItems when description is passed in and an 2 objects are passed in for subItems', () => {
+  it('renders 1 MoreInformationDescription and 2 SubItems when description is passed in and an 2 objects are passed in for subItems', () => {
     const wrapper = shallow(
       <MoreInformationBlock
         {...minProps}

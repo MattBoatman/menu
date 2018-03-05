@@ -1,42 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import './MainWrapper.css';
-import Toolbar from '../Toolbar/Toolbar';
+import { categoryShape, itemShape, listShape} from '../dataShapes';
 import { getListOfCategories } from '../CategoryRedux/CategoryActions';
 import { getListOfItems } from '../ListRedux/ListActions';
 import { getItem } from '../ItemRedux/ItemActions';
 import RenderCards from './RenderCards/RenderCards';
+import Toolbar from '../Toolbar/Toolbar';
+import './MainWrapper.css';
 
-const categoryShape = {
-  categoryId: PropTypes.number,
-  name: PropTypes.string,
-  imageUrl: PropTypes.string,
-  color: PropTypes.string,
-};
-
-const subItemsShape = {
-  description: PropTypes.string,
-  price: PropTypes.string,
-};
-
-const itemShape = {
-  itemId: PropTypes.number,
-  name: PropTypes.string,
-  imageUrl: PropTypes.string,
-  color: PropTypes.string,
-  price: PropTypes.string,
-  subItems: PropTypes.arrayOf(PropTypes.shape(subItemsShape)),
-  upgrades: PropTypes.shape(subItemsShape),
-};
-
-const listShape = {
-  itemId: PropTypes.number,
-  name: PropTypes.string,
-  imageUrl: PropTypes.string,
-  price: PropTypes.string,
-  color: PropTypes.string,
-};
 
 class MainWrapper extends Component {
   static propTypes = {

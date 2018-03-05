@@ -3,21 +3,7 @@ import PropTypes from 'prop-types';
 import Price from './Price';
 import CardTitle from './CardTitle';
 import MoreInformationBlock from './MoreInformationBlock';
-
-const subItemsShape = {
-  description: PropTypes.string,
-  price: PropTypes.string,
-};
-
-const itemShape = {
-  itemId: PropTypes.number,
-  name: PropTypes.string,
-  imageUrl: PropTypes.string,
-  color: PropTypes.string,
-  price: PropTypes.string,
-  subItems: PropTypes.arrayOf(PropTypes.shape(subItemsShape)),
-  upgrades: PropTypes.shape(subItemsShape),
-};
+import { itemShape } from '../dataShapes';
 
 const style = {
   container: {

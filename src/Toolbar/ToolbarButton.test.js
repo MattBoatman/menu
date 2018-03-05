@@ -12,4 +12,8 @@ describe('ToolbarButton', () => {
     const wrapper = shallow(<ToolbarButton {...minProps} />);
     expect(wrapper.length).toEqual(1);
   });
+  it('renders correct name', () => {
+    const wrapper = shallow(<ToolbarButton {...minProps} />);
+    expect(wrapper.text()).toEqual('list');
+  });
 });
